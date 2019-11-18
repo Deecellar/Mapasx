@@ -1,0 +1,31 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:MapGeneratorUI.ViewModels;assembly=MapGeneratorUI"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="MapGeneratorUI.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="MapGeneratorUI">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Zoom"></TextBlock>
+            <Slider  Minimum="0.1" Maximum="10" Value="{Binding Zoom}" Width="100" >
+            </Slider>
+            <TextBox IsEnabled="False" Text="{Binding  Zoom, Mode=OneWay}"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Modificador"></TextBlock>
+            <Slider Minimum="0.1" Maximum="10" Value="{Binding Modifier}" Width="100"></Slider>
+           <TextBox IsEnabled="False" Text="{Binding  Modifier, Mode=OneWay}"></TextBox>
+
+        </StackPanel>
+        <Image Source="{Binding Bitmap}" Width="640" Height="640"></Image>
+    </StackPanel>
+
+</Window>
